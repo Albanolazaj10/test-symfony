@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+<br>
+<h1 class="d-flex justify-content-center">{{ordereLine.product}}:</h1>
+
+<div class="container d-flex justify-content-center">
+    <img src="{{asset('images/' ~ ordereLine.image)}}">
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        <h3>{{ message }}</h3>
+    </div>
+{% endfor %}
+
+<br>
+<div class="container">
+    <h2>OrderLine Edit:</h2>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>OrderLine Id</td>
+                <td>OrderLine</td>
+                <td>Count</td>
+                <td>Total Price</td>
+                <td>Discount</td>
+                <td>Payable Price</td>
+                <td>Order</td>
+                <td>Delete</td>
+                <td><a href="{{ path('order_line.create')}}">Create</a></td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for orderLine in orderLined %}
+            <tr>
+                <td>{{ orderLine.id }}</td>
+                <td><a href="{{ path('order_line.show-line', {id: orderLine.id} )}}">{{orderLine.product}}</a></td>
+                <td>{{ orderLine.count }}</td>
+                <td>{{ orderLine.totalPrice }}</td>
+                <td>{{ orderLine.discount }}</td>
+                <td>{{ orderLine.payablePrice }}</td>
+                <td>{{ orderLine.orderLine }}</td>
+                 <td><a href="{{ path('order_line.remove', {id: orderLine.id} )}}">X</a></td>
+                <td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
