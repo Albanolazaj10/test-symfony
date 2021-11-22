@@ -1,3 +1,5 @@
+<!-- This is the index.php file of the project -->
+
 <?php
 
 use App\Kernel;
